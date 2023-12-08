@@ -1,10 +1,13 @@
 import React from "react";
 import { UserContextProvider } from "./UserContext";
+import { CartContextProvider } from "./CartContext";
 
 const ContextProvider = ({ children }) => {
   return (
     <>
-      <UserContextProvider>{children}</UserContextProvider>
+      <UserContextProvider>
+        <CartContextProvider>{children}</CartContextProvider>
+      </UserContextProvider>
     </>
   );
 };

@@ -7,7 +7,11 @@ import { UserContext } from "../contexts/UserContext";
 const Home = ({ navigation }) => {
   const { user, cleanUser } = useContext(UserContext);
 
-  const LogutHandler = () => {
+  const goProductsHandler = () => {
+    navigation.navigate("Products");
+  };
+
+  const LogoutHandler = () => {
     cleanUser();
     navigation.navigate("Login");
   };
@@ -15,7 +19,8 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome back, {user.username}!</Text>
-      <Button title="Go to Login" onPress={LogutHandler} />
+      <Button title="Go to Products" onPress={goProductsHandler} />
+      <Button title="Go to Login" onPress={LogoutHandler} />
     </View>
   );
 };
